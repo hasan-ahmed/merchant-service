@@ -11,8 +11,8 @@
 	<groupId>com.boxknight</groupId>
 	<artifactId>merchant-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>demo</name>
-	<description>Demo project for Spring Boot</description>
+	<name>merchant-service</name>
+	<description>Merchant-Services</description>
 
 	<properties>
 		<java.version>1.8</java.version>
