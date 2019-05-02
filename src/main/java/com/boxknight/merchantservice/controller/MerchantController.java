@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class MerchantController {
     @GetMapping
     public ResponseEntity<?> getAllMerchants() {
-        return ResponseEntity.status(HttpStatus.OK).body("The test is working!");
+        return ResponseEntity.status(HttpStatus.OK).body("The test is working with meta repository!!!!");
     }
 }
 
