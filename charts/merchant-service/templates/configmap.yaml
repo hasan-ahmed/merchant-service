@@ -11,4 +11,4 @@ metadata:
   labels:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
 data:
-  MERCHANT_DB: "Hello World"
+  merchant_db: "Hello World"
