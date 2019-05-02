@@ -1,0 +1,30 @@
+apiVersion: skaffold/v1beta2
+kind: Config
+build:
+  artifacts:
+  - image: changeme
+    context: .
+    docker: {}
+  tagPolicy:
+    envTemplate:
+      template: '{{.DOCKER_REGISTRY}}/hasan-ahmed/merchant-service:{{.VERSION}}'
+  local: {}
+deploy:
+  kubectl: {}
+profiles:
+- name: dev
+  build:
+    artifacts:
+    - docker: {}
+    tagPolicy:
+      envTemplate:
+        template: '{{.DOCKER_REGISTRY}}/hasan-ahmed/merchant-service:{{.DIGEST_HEX}}'
+    local: {}
+  deploy:
+    helm:
+      releases:
+      - name: merchant-service
+        chartPath: charts/merchant-service
+        setValueTemplates:
+          image.repository: '{{.DOCKER_REGISTRY}}/hasan-ahmed/merchant-service'
+          image.tag: '{{.DIGEST_HEX}}'
