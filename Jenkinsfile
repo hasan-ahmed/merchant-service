@@ -6,6 +6,7 @@ pipeline {
     ORG = 'hasan-ahmed'
     APP_NAME = 'merchant-service'
     CHARTMUSEUM_CREDS = credentials('jenkins-x-chartmuseum')
+    MERCHANT_DB = credentials('MERCHANT_DB')
   }
   stages {
     stage('CI Build and push snapshot') {
@@ -25,7 +26,7 @@ pipeline {
           sh "export VERSION=$PREVIEW_VERSION && skaffold build -f skaffold.yaml"
           sh "jx step post build --image $DOCKER_REGISTRY/$ORG/$APP_NAME:$PREVIEW_VERSION"
           dir('charts/preview') {
-            sh "make preview"
+            sh "make MERCHANT_DB=\$MERCHANT_DB preview"
             sh "jx preview --app $APP_NAME --dir ../.."
           }
         }
