@@ -31,5 +31,5 @@ metadata:
   name: "merchant-db"
 spec:
   type: ExternalName
-  externalName: merchantservicedb.cwehwynauojy.us-east-1.rds.amazonaws.com
+  externalName: merchantservicedb.cwehwynauojy.us-east-1.rds.amazonaws.commerchantservicedb.cwehwynauojy.us-east-1.rds.amazonaws.com
 selector: {}
